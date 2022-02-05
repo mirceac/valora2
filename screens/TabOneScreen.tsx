@@ -21,10 +21,10 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <div>
+
         <Button onPress={login} title="Connect Wallet"></Button>
         <Button onPress={logout} title="Disconnect Wallet"></Button>
-      </div>
+
     </View>
   );
 }
