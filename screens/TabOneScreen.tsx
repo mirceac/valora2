@@ -1,15 +1,30 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Button } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
+import { walletActions } from "../store/actions/walletActions";
+import { useDispatch } from 'react-redux';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function LoginScreen({ navigation }) {
+  const dispatch = useDispatch();
+
+  // This function calls up the connect function from the walletAction Action
+  const login = () => {
+    dispatch(walletActions.connect(navigation));
+  };
+
+  const logout = () => {
+    dispatch(walletActions.disconnect());
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <div>
+        <Button onPress={login} title="Connect Wallet"></Button>
+        <Button onPress={logout} title="Disconnect Wallet"></Button>
+      </div>
     </View>
   );
 }
@@ -30,3 +45,4 @@ const styles = StyleSheet.create({
     width: '80%',
   },
 });
+
