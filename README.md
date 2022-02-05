@@ -1,5 +1,6 @@
 # valora2
 
+```
 expo init $YOUR_APP_NAME
 TypeScript Template >> Tabs
 
@@ -13,3 +14,4 @@ yarn add redux redux-thunk redux-logger react-redux
 export NODE_OPTIONS=--openssl-legacy-provider
 
 yarn start
+```
